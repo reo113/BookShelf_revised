@@ -1,0 +1,372 @@
+#root {
+  margin: 0 auto;
+  padding: 0;
+  text-align: center;
+  display: flex;
+  top: 0;
+  left: 0;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+}
+.highlight {
+  border: 2px solid yellow;
+}
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.1em 0.4em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+  margin: 0.2em;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+#header {
+  font-size: 3.2em;
+  line-height: 1.1;
+  font-weight: 500;
+  font-family: inherit;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 3.9vh;
+  left: 3%;
+  z-index: 1;
+}
+.search_container {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+#search_btn {
+  color: aliceblue;
+}
+.add_book {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  
+  position: relative;
+  top: 0.9vh;
+  left: 3%;
+}
+
+#add_book_btn {
+  max-width: 15rem;
+}
+#add_book_btn:hover {
+  transform: translateY(0.5em);
+  transform: scale(1.1);
+  transition: transform 0.3s;
+  z-index: 1;
+}
+.bookshelf {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  filter: drop-shadow(0.1em 5em 0.1em rgba(0, 0, 0, 0.2));
+  padding: 2em;
+  background-color: rgb(53, 35, 9);
+  color: rgb(53, 35, 9);
+  width: 100%;
+  height: 70vh;
+  position: relative;
+  min-width: fit-content;
+  max-width: fit-content;
+  min-height: fit-content;
+  max-height: fit-content;
+}
+
+.shelf button:hover {
+  transform: translateY(0.5em);
+  transform: scale(1.1);
+  transition: transform 0.3s;
+}
+.bookshelf:hover > .container {
+  overflow: visible;
+}
+
+.shelf {
+  position: relative;
+  width: 100%;
+  height: 22vh;
+  display: flex;
+  flex-direction: row;
+  box-shadow: 5px 2px 4px rgba(0, 0, 0, 0.2);
+  background-color: rgb(20, 12, 1);
+  overflow-y: hidden;
+  overflow-x: auto;
+  border-radius: 6px;
+  top: 1.5vh;
+  min-width: fit-content;
+  max-width: fit-content;
+  min-height: fit-content;
+  max-height: fit-content;
+  align-items: last baseline;
+}
+.highlight {
+  background-color: yellow;
+  color: aliceblue;
+}
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding-bottom: 1em;
+  margin: 0;
+  overflow: hidden;
+  position: relative;
+  top: 0.5vh;
+  align-items: last baseline;
+}
+.book-image {
+  width: 60px;
+  height: 220px;
+}
+.display {
+  position: fixed;
+  top: 10vh;
+  right: 0;
+  left: 0;
+  bottom: -10vh;  
+  background-color: rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(4px);
+  display: flex;
+  justify-content: baseline;
+  align-items: center;
+  z-index: 999;;
+}
+
+.display-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  text-align: center;
+
+}
+/*****************************************************/
+.open_book {
+  position: absolute;
+  margin: auto;
+  width: 38.5rem;
+  height: 32.5rem;
+  perspective: 70rem;
+
+}
+.cover {
+  position: relative;
+  display: flex;
+  background-color: #36354e;
+  transform: rotateY(0deg);
+  width: 38rem;
+  height: 68rem;
+  right: 40%;
+  bottom: 1vh;
+}
+.page {
+  position: relative;
+  background-color: #e9e6c4;
+  transform: rotateY(0deg);
+  width: 30rem;
+  height: 65rem;
+  text-align: right;
+  font-size: 8px;
+  color: #777;
+  font-family: monospace;
+  right: 40%;
+ bottom: .1vh;
+}
+
+.cover,
+.page {
+  position: absolute;
+  padding: 1rem;
+  transform-origin: 100% 0;
+  border-radius: 5px 0 0 5px;
+  box-shadow: inset 3px 0px 20px rgba(0, 0, 0, 0.2), 0px 0px 15px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  border: 2px solid;
+
+}
+#close_display_btn {
+  position: fixed;
+  margin: 1rem;
+  padding: 0.5rem;
+  border: 1px solid #777;
+  border-radius: 5px;
+  background-color: #36354e;
+  color: #fff;
+  cursor: pointer;
+  z-index: 999;
+}
+.cover.turn {
+  animation: bookCover 3s forwards;
+}
+.page.turn {
+  animation: bookOpen 3s forwards;
+}
+.page:nth-of-type(1) {
+  animation-delay: 0.05s;
+}
+.page:nth-of-type(2) {
+  animation-delay: 0.33s;
+}
+.page:nth-of-type(3) {
+  animation-delay: 0.66s;
+}
+.page:nth-of-type(4) {
+  animation: bookOpen150deg 3s forwards;
+  animation-delay: 0.99s;
+}
+.page:nth-of-type(5) {
+  animation: bookOpen30deg 3s forwards;
+  animation-delay: 1.2s;
+}
+.page:nth-of-type(6) {
+  animation: 1s forwards;
+  animation-delay: 1.25s;
+}
+@keyframes bookOpen {
+  30% {
+    z-index: 999;
+  }
+  100% {
+    transform: rotateY(180deg);
+    z-index: 999;
+  }
+}
+@keyframes bookCover {
+  30% {
+    z-index: 999;
+  }
+  100% {
+    transform: rotateY(180deg);
+    z-index: 1;
+  }
+}
+@keyframes bookOpen150deg {
+  30% {
+    z-index: 999;
+  }
+  100% {
+    transform: rotateY(150deg);
+    z-index: 999;
+  }
+}
+@keyframes bookOpen55deg {
+  30% {
+    z-index: 999;
+  }
+  100% {
+    transform: rotateY(55deg);
+    z-index: 999;
+  }
+}
+@keyframes bookOpen30deg {
+  50% {
+    z-index: 999;
+  }
+  100% {
+    transform: rotateY(30deg);
+    z-index: 999;
+  }
+}
+.modal_content {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(4px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+.modal_btn {
+  max-width: 36rem; /* Assuming 1 rem = 16px */
+  width: 32rem; /* Assuming 1 rem = 16px */
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid yellow;
+}
+.modal_close_btn {
+  color: white;
+  font-size: 1.25rem; /* Assuming 1 rem = 16px */
+  align-self: flex-end;
+  border: 2px solid yellow;
+}
+.modal_form {
+  background-color: white;
+  color: #333333; /* Equivalent to gray-800 in Tailwind CSS */
+  padding: 2rem; /* Assuming 1 rem = 16px */
+  border: 4px solid blue;
+}
+.main_form {
+  background-color: #bfdbfe; /* Equivalent to bg-blue-200 in Tailwind CSS */
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem; /* Equivalent to gap-2 in Tailwind CSS */
+  border: 2px solid red;
+}
+.fields {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid yellow;
+  
+}
+.input_fields {
+  background-color: white;
+  color: #1a1a1a;
+  border-width: 4px;
+  border-style: solid;
+  border-color: initial;
+  outline: none;
+  padding: 0.5rem;
+  border: 2px solid yellow;
+}
+.last_input_field {
+  display: flex;
+  gap: 0.5rem; /* Assuming 1 rem = 16px */
+  align-items: center;
+}
+.form_sub_btn{
+  background-color: #3B82F6; /* Equivalent to bg-blue-500 in Tailwind CSS */
+transition: background-color 0.3s ease;
+margin-top: 1rem; /* Equivalent to mt-4 in Tailwind CSS */
+padding-top: 0.5rem; /* Equivalent to py-2 in Tailwind CSS */
+padding-bottom: 0.5rem; /* Equivalent to py-2 in Tailwind CSS */
+color: white;
+cursor: pointer;
+
+}
+.radio{
+  padding: 0.5rem;
+}
