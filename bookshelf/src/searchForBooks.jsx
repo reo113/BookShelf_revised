@@ -1,6 +1,7 @@
-import books from "./books";
+
 import { PropTypes } from "prop-types";
 import { useState, useEffect } from "react";
+import db from "./db.json";
 
 const BookSearch = ({ bookCards }) => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -12,13 +13,13 @@ const BookSearch = ({ bookCards }) => {
 
   const handleSearch = () => {
     if (searchTerm.trim() !== "") {
-      const filtered = books.filter((book) => {
+      const filtered = db.books.filter((book) => {
         return (
           book.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
           book.author.toLowerCase().includes(searchTerm.toLowerCase())
         );
       });
-
+      
       setFilteredBooks(filtered);
       getUpdatedBookCard(filteredBooks);
     }

@@ -39,9 +39,6 @@ function AddBookForm({ onAddBook}) {
       body: JSON.stringify(newBook),
     });
     const savedBook = await response.json();
-
-    console.log(newBook);
-    console.log(savedBook);
     onAddBook(savedBook);
     setBookFormState(initialBookFormState);
   };

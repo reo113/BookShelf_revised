@@ -5,6 +5,8 @@ import OpenBook from "./openBook";
 import AddBook from "./addBook";
 import AddBookForm from "./addBookForm";
 import Modal from "./Modal";
+import  BookList from "./BookList";
+import { NavLink,Link,Outlet } from "react-router-dom";
 import "./App.css";
 
 function App() {
@@ -12,25 +14,25 @@ function App() {
   const [isDisplayOpen, setIsDisplayOpen] = useState(false);
   const [isModalVisible, setIsModalVisible] = useState(false);
 
-  useEffect(() => {
-    async function fetchBooks() {
-    const response = await fetch('http://localhost:3000/books');
-    const books = await response.json();
-    setBooks(books);
-    }
+  // useEffect(() => {
+  //   async function fetchBooks() {
+  //   const response = await fetch('http://localhost:3000/books');
+  //   const books = await response.json();
+  //   setBooks(books);
+  //   }
  
-    fetchBooks();
+  //   fetchBooks();
 
-  }, []);
+  // }, []);
   const handleButtonClick = () => {
     setIsDisplayOpen(true);
   };
   const handleCloseDisplay = () => {
     setIsDisplayOpen(false);
   };
-  const bookCards = books.map((booksData, i) => {
-    return <BookCard book={booksData} key={i} id={booksData.title} onBookClick={()=> handleButtonClick()}  />;
-  });
+  // const bookCards = books.map((booksData, i) => {
+  //   return <BookCard book={booksData} key={i} id={booksData.title} onBookClick={()=> handleButtonClick()}  />;
+  // });
   const showModal = () => {
     setIsModalVisible(true);
   };
@@ -40,27 +42,26 @@ function App() {
   };
 
   const onAddbook = (newBook) => {
-   
     hideModal();
-    //ToDO add new book to the books array
     setBooks((prevBooks) => [...prevBooks, newBook]);
   };
   return (
     <>
+
       <h1 id="header">BookShelf</h1>
       <AddBook showModal={showModal} />
       <div className="bookshelf">
-        <BookSearch bookCards={bookCards}/>
+        {/* <BookSearch bookCards={BookList.bookCards} /> */}
         <div className="shelf">
-          {bookCards}
+          <Outlet />
         </div>
         <div className="stand">-</div>
         <div className="shelf">
-          {bookCards}
+        <Outlet />
         </div>
         <div className="stand">-</div>
         <div className="shelf">
-          {bookCards}
+          <Outlet />
         </div>
         <Modal isVisible={isModalVisible} hideModal={hideModal}>
         <AddBookForm onAddBook={onAddbook} book={books} />
