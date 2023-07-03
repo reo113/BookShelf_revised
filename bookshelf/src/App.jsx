@@ -5,34 +5,39 @@ import OpenBook from "./openBook";
 import AddBook from "./addBook";
 import AddBookForm from "./addBookForm";
 import Modal from "./Modal";
-import  BookList from "./BookList";
-import { NavLink,Link,Outlet } from "react-router-dom";
 import "./App.css";
 
 function App() {
   const [books, setBooks] = useState([]);
   const [isDisplayOpen, setIsDisplayOpen] = useState(false);
   const [isModalVisible, setIsModalVisible] = useState(false);
+  const [selectedBook, setSelectedBook] = useState(null);
 
-  // useEffect(() => {
-  //   async function fetchBooks() {
-  //   const response = await fetch('http://localhost:3000/books');
-  //   const books = await response.json();
-  //   setBooks(books);
-  //   }
+
+  useEffect(() => {
+    async function fetchBooks() {
+    const response = await fetch('http://localhost:3000/books');
+    const books = await response.json();
+    setBooks(books);
+    }
  
-  //   fetchBooks();
+    fetchBooks();
 
-  // }, []);
-  const handleButtonClick = () => {
+  }, []);
+
+  const handleButtonClick = (book) => {
     setIsDisplayOpen(true);
+    setSelectedBook(book);
   };
+
   const handleCloseDisplay = () => {
     setIsDisplayOpen(false);
   };
-  // const bookCards = books.map((booksData, i) => {
-  //   return <BookCard book={booksData} key={i} id={booksData.title} onBookClick={()=> handleButtonClick()}  />;
-  // });
+
+  const bookCards = books.map((booksData, i) => {
+    return <BookCard book={booksData} key={i} id={booksData.title} onBookClick={()=> handleButtonClick(booksData)}  />;
+  });
+  
   const showModal = () => {
     setIsModalVisible(true);
   };
@@ -45,29 +50,30 @@ function App() {
     hideModal();
     setBooks((prevBooks) => [...prevBooks, newBook]);
   };
+
   return (
     <>
 
       <h1 id="header">BookShelf</h1>
       <AddBook showModal={showModal} />
       <div className="bookshelf">
-        {/* <BookSearch bookCards={BookList.bookCards} /> */}
+        <BookSearch bookCards={bookCards} />
         <div className="shelf">
-          <Outlet />
+          {bookCards}
         </div>
         <div className="stand">-</div>
         <div className="shelf">
-        <Outlet />
+        {bookCards}
         </div>
         <div className="stand">-</div>
         <div className="shelf">
-          <Outlet />
+        {bookCards}
         </div>
         <Modal isVisible={isModalVisible} hideModal={hideModal}>
         <AddBookForm onAddBook={onAddbook} book={books} />
       </Modal>
         {isDisplayOpen && (
-          <OpenBook handleCloseDisplay={handleCloseDisplay} />
+          <OpenBook handleCloseDisplay={handleCloseDisplay} selectedBook={selectedBook} />
         )}
       </div>
     </>

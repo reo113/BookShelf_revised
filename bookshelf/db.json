@@ -48,20 +48,17 @@
       "title": "Harry Potter and the deathly hallows",
       "author": "J.K. Rowling",
       "pdf": "https://www.pdfdrive.com/download.pdf?id=3d6b4d7a&h=1c2d2b2c&u=cache&ext=pdf"
-    },
-    {
-      "title": "RE: DB1",
-      "author": "ortiz",
-      "pdf": "h",
-      "image": "HarryPotter-Book6-etsy.jpg",
-      "id": 8
-    },
-    {
-      "title": "RE: DB1",
-      "author": "ortiz",
-      "pdf": "h",
-      "image": "HarryPotter-Book6-etsy.jpg",
-      "id": 9
     }
+  ],
+  "notes": [
+    {
+      "id": 1,
+      "bookID": 1,
+      "rating": 5,
+      "favoriteLine": "yhinh thinh",
+      "review": "stuff stuff",
+      "page": "49"
+    }
+   
   ]
 }

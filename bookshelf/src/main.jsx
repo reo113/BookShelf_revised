@@ -1,29 +1,25 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import {createBrowserRouter, RouterProvider} from "react-router-dom"; //
+import {createBrowserRouter, RouterProvider} from "react-router-dom";
 import App from './App.jsx'
-import BookList,{loader as bookLoader} from "./BookList";
 import ErrorPage from './error-page.jsx'
 import './index.css'
-import BookSearch from './searchForBooks.jsx';
-
+import AddDetailsPage from './AddDetailsPage.jsx'
+import ViewDetails from './ViewDetails.jsx';
 const router = createBrowserRouter([
   {
     path: '/',
     element: <App />,
     errorElement: <ErrorPage />,
-children: [
-  {
-    path: '/',
-    element:<BookList/>,
-    loader: bookLoader,
-  },
-],
   },
   {
-    path:'/',
-    element: <BookSearch />,
-  }
+    path: '/add-details/:id',
+    element: <AddDetailsPage />,
+  },
+  {
+    path: '/view-details/:id',
+    element: <ViewDetails />,
+  },
 ]);
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>

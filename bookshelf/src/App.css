@@ -62,7 +62,7 @@ button:focus-visible {
   display: flex;
   flex-direction: row;
   align-items: baseline;
-  
+
   position: relative;
   top: 0.9vh;
   left: 3%;
@@ -152,13 +152,13 @@ button:focus-visible {
   top: 10vh;
   right: 0;
   left: 0;
-  bottom: -10vh;  
+  bottom: -10vh;
   background-color: rgba(0, 0, 0, 0.25);
   backdrop-filter: blur(4px);
   display: flex;
   justify-content: baseline;
   align-items: center;
-  z-index: 999;;
+  z-index: 999;
 }
 
 .display-content {
@@ -166,7 +166,6 @@ button:focus-visible {
   padding: 20px;
   border-radius: 5px;
   text-align: center;
-
 }
 /*****************************************************/
 .open_book {
@@ -175,7 +174,6 @@ button:focus-visible {
   width: 38.5rem;
   height: 32.5rem;
   perspective: 70rem;
-
 }
 .cover {
   position: relative;
@@ -198,7 +196,7 @@ button:focus-visible {
   color: #777;
   font-family: monospace;
   right: 40%;
- bottom: .1vh;
+  bottom: 0.1vh;
 }
 
 .cover,
@@ -210,10 +208,13 @@ button:focus-visible {
   box-shadow: inset 3px 0px 20px rgba(0, 0, 0, 0.2), 0px 0px 15px rgba(0, 0, 0, 0.1);
   box-sizing: border-box;
   border: 2px solid;
-
 }
 #close_display_btn {
-  position: fixed;
+  position: absolute;
+  display: flex;
+  bottom: auto;
+  float: left;
+  right: 31.5vw;
   margin: 1rem;
   padding: 0.5rem;
   border: 1px solid #777;
@@ -340,7 +341,6 @@ button:focus-visible {
   display: flex;
   flex-direction: column;
   border: 2px solid yellow;
-  
 }
 .input_fields {
   background-color: white;
@@ -357,16 +357,76 @@ button:focus-visible {
   gap: 0.5rem; /* Assuming 1 rem = 16px */
   align-items: center;
 }
-.form_sub_btn{
-  background-color: #3B82F6; /* Equivalent to bg-blue-500 in Tailwind CSS */
-transition: background-color 0.3s ease;
-margin-top: 1rem; /* Equivalent to mt-4 in Tailwind CSS */
-padding-top: 0.5rem; /* Equivalent to py-2 in Tailwind CSS */
-padding-bottom: 0.5rem; /* Equivalent to py-2 in Tailwind CSS */
-color: white;
-cursor: pointer;
-
+.form_sub_btn {
+  background-color: #3b82f6; /* Equivalent to bg-blue-500 in Tailwind CSS */
+  transition: background-color 0.3s ease;
+  margin-top: 1rem; /* Equivalent to mt-4 in Tailwind CSS */
+  padding-top: 0.5rem; /* Equivalent to py-2 in Tailwind CSS */
+  padding-bottom: 0.5rem; /* Equivalent to py-2 in Tailwind CSS */
+  color: white;
+  cursor: pointer;
 }
-.radio{
+.radio {
   padding: 0.5rem;
+}
+
+.add-details-btn {
+  position: absolute;
+  z-index: 999;
+  font-size: 4.5rem;
+  font-family: "Lucida Handwriting", cursive;
+  background-color: transparent;
+  float: right;
+  transition: transform 2.5s ease-in-out;
+  width: 50%;
+  height: auto;
+  bottom: 25.5vh;
+  right: 4.5vw;
+}
+.add-details-btn:hover {
+  transform: translateY(0.5em);
+  transform: scale(1.1);
+  transition: transform 1.5s;
+}
+.delete-book-btn {
+  width: 50%;
+  height: auto;
+  position: absolute;
+    bottom: 1.5vh;
+  right: 4.5vw;
+  z-index: 999;
+  font-size: 4.5rem;
+  font-family: "Lucida Handwriting", cursive;
+  background-color: transparent;
+  z-index: 999;
+}
+.delete-book-btn:hover {
+  transform: translateY(0.5em);
+  transform: scale(1.1);
+  transition: transform 1.5s;
+}
+.buttons-container a{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  z-index: 999;
+  text-decoration: none;
+}
+.view-details-btn{
+  width: 50%;
+  height: auto;
+  position: absolute;
+  z-index: 999;
+  font-size: 4.5rem;
+  bottom: 30.5vh;
+  right: 4.5vw;
+  font-family: "Lucida Handwriting", cursive;
+  background-color: transparent;
+  z-index: 999;
+}
+.view-details-btn:hover {
+  transform: translateY(0.5em);
+  transform: scale(1.1);
+  transition: transform 1.5s;
 }

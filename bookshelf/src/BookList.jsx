@@ -26,7 +26,7 @@ export default function BookList() {
       };
     const { books } = useLoaderData();
 
-    const bookCards = books.map((booksData, i) => {
+     const bookCards = books.map((booksData, i) => {
         return <BookCard book={booksData} key={i} id={booksData.title} onBookClick={()=> handleButtonClick()}  />;
       });
 
