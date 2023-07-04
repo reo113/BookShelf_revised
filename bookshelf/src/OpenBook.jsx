@@ -30,10 +30,9 @@ function OpenBook({handleCloseDisplay, selectedBook}){
           <Link to={`/add-details/${selectedBook.id}`} className="add-details-btn">
             Add Details
           </Link>
-          <Link to="/delete-book" className="delete-book-btn">
+          <Link to={`/delete-book/${selectedBook.id} `} className="delete-book-btn">
             Delete Book
           </Link>
-         
           <button id="close_display_btn" onClick={handleCloseDisplay}>
           Close
         </button>

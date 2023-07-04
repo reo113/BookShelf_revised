@@ -5,7 +5,10 @@ import App from './App.jsx'
 import ErrorPage from './error-page.jsx'
 import './index.css'
 import AddDetailsPage from './AddDetailsPage.jsx'
-import ViewDetails from './ViewDetails.jsx';
+import ViewDetails from './viewDetails.jsx';
+import DeleteBook from './deleteBook.jsx';
+import EditDetails from './editDetails.jsx';
+import {loader as editDetailsLoader} from './editDetails.jsx';
 const router = createBrowserRouter([
   {
     path: '/',
@@ -20,6 +23,15 @@ const router = createBrowserRouter([
     path: '/view-details/:id',
     element: <ViewDetails />,
   },
+  {
+    path: '/delete-book/:id',
+    element: <DeleteBook />,
+  },
+  {
+    path: 'edit-details/:id',
+    element:<EditDetails />,
+    loader: editDetailsLoader,
+  }
 ]);
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>

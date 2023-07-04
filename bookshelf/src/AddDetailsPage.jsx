@@ -1,5 +1,6 @@
-import { useState,useEffect } from "react";
+import { useState } from "react";
 import { useParams } from "react-router-dom";
+import Modal from "./Modal";
 
 
 const initialNoteFormState = {
@@ -10,22 +11,12 @@ const initialNoteFormState = {
 };
 
 function AddDetailsPage() {
+
   const { id } = useParams(); // Extract the book ID from the URL
   const [notes, setNotes] = useState([]);
   const [NoteFormState, setNoteFormState] = useState(initialNoteFormState);
+  const [isModalVisible, setIsModalVisible] = useState(true);
 
-
-  useEffect(() => {
-    async function fetchNotes() {
-    const response = await fetch('http://localhost:3000/notes');
-    const notes = await response.json();
-    setNotes(notes);
-    }
- 
-    fetchNotes();
-
-  }, []);
- 
   const handleInputChange = (e) => {
     setNoteFormState((noteState) => ({
       ...noteState,
@@ -35,8 +26,11 @@ function AddDetailsPage() {
 
   const onAddNote = (newNote) => {
     setNotes((prevNotes) => [...prevNotes, newNote]);
-  };
 
+  };
+  const hideModal = () => {
+    setIsModalVisible(false);
+  };
 
   const handleAddNoteFormSubmit = async (e) => {
     e.preventDefault();
@@ -46,7 +40,7 @@ function AddDetailsPage() {
       favoriteLine: NoteFormState.favoriteLine,
       page: NoteFormState.page,
       review: NoteFormState.review,
-      bookID: id,
+      bookID: parseInt(id),
     };
     const response = await fetch("http://localhost:3000/notes", {
       method: "POST",
@@ -62,7 +56,7 @@ function AddDetailsPage() {
   };
 
   return (
-    
+     <Modal isVisible={isModalVisible} hideModal={hideModal}>
       <form onSubmit={handleAddNoteFormSubmit} className="main_form">
       <h2>Add Details</h2>
       <fieldset className="fields">
@@ -113,6 +107,7 @@ function AddDetailsPage() {
         type="submit"
       ></input>
       </form>
+    </Modal>
   
   );
 }
