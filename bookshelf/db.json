@@ -9,6 +9,14 @@
       "shelfID": 1
     },
     {
+      "id": 2,
+      "image": "book2hp.jpg",
+      "title": "Harry Potter and the chamber of secrets",
+      "author": "J.K. Rowling",
+      "pdf": "https://www.pdfdrive.com/download.pdf?id=3d6b4d7a&h=1c2d2b2c&u=cache&ext=pdf",
+      "shelfID": 1
+    },
+    {
       "id": 3,
       "image": "HarryPotter-Book3-etsy-300x300.jpg",
       "title": "Harry Potter and the prisoner of Azkaban",
@@ -33,17 +41,17 @@
       "author": "J.K. Rowling",
       "pdf": "https://www.pdfdrive.com/download.pdf?id=3d6b4d7a&h=1c2d2b2c&u=cache&ext=pdf",
       "shelfID": 2
+    },
+    {
+      "title": "hp",
+      "author": "jk",
+      "pdf": "p",
+      "image": "HarryPotter-Book6-etsy.jpg",
+      "shelfID": "shelf2",
+      "id": 6
     }
   ],
   "shelf3": [
-    {
-      "id": 6,
-      "image": "HarryPotter-Book6-etsy.jpg",
-      "title": "Harry Potter and the half-blood prince",
-      "author": "J.K. Rowling",
-      "pdf": "https://www.pdfdrive.com/download.pdf?id=3d6b4d7a&h=1c2d2b2c&u=cache&ext=pdf",
-      "shelfID": 3
-    },
     {
       "id": 7,
       "image": "HarryPotter-Book7-etsy-600x600.jpg",
@@ -54,14 +62,6 @@
     }
   ],
   "notes": [
-    {
-      "id": 1,
-      "bookID": 1,
-      "rating": "10",
-      "favoriteLine": "yo",
-      "review": "its a review",
-      "page": "90"
-    },
     {
       "rating": "78",
       "favoriteLine": "its me",
@@ -77,6 +77,14 @@
       "review": "ho ho",
       "bookID": 4,
       "id": 4
+    },
+    {
+      "rating": "78",
+      "favoriteLine": "yo yo",
+      "page": "56",
+      "review": "its a review",
+      "bookID": 1,
+      "id": 5
     }
   ]
 }

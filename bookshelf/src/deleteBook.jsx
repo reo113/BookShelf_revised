@@ -19,6 +19,7 @@ console.log(shelfId);
       // Check if the book exists
       
       console.log(id);
+      console.log(shelfId);
       const bookResponse = await fetch(`http://localhost:3000/shelf${shelfId}/${id}`);
       if (!bookResponse.ok) {
         console.error("Book not found.");
@@ -33,8 +34,8 @@ console.log(shelfId);
         await fetch(`http://localhost:3000/shelf${shelfId}/${id}`, {
           method: "DELETE",
         });
-        console.log("Book deleted successfully.");
-        return; // Exit the function if the note doesn't exist
+        console.log("Book deleted successfully!.");
+        window.location.href = '/';
       }
 
       // Delete the note
@@ -47,7 +48,7 @@ console.log(shelfId);
       await fetch(`http://localhost:3000/shelf${shelfId}/${id}`, {
         method: "DELETE",
       });
-      console.log("Book deleted successfully.");
+      console.log("Book deleted successfully!!.");
     } catch (error) {
       // Handle any error during deletion
       console.error("Error deleting book and note:", error);

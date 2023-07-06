@@ -25,7 +25,6 @@ function AddDetailsPage() {
   const [NoteFormState, setNoteFormState] = useState(initialNoteFormState);
   const [isModalVisible, setIsModalVisible] = useState(true);
 
-console.log(note);
   const handleInputChange = (e) => {
     setNoteFormState((noteState) => ({
       ...noteState,
@@ -64,7 +63,6 @@ console.log(note);
   
       if (response.ok) {
         console.log("Note successfully updated!",note.id);
-        const updatedNote = await response.json();
         setNoteFormState(initialNoteFormState);
        window.location.href = "/";
       } else {
