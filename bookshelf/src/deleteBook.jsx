@@ -4,16 +4,22 @@ import { useState } from "react";
 import Modal from "./Modal";
 
 function DeleteBook() {
-  const { id } = useParams(); // Extract the book ID from the URL
+  const { id, shelfId } = useParams(); // Extract the book ID from the URL
   const [isModalVisible, setIsModalVisible] = useState(true);
+
+console.log(id);
+console.log(shelfId);
   const hideModal = () => {
     setIsModalVisible(false);
   };
 
   const handleDelete = async () => {
+    
     try {
       // Check if the book exists
-      const bookResponse = await fetch(`http://localhost:3000/books/${id}`);
+      
+      console.log(id);
+      const bookResponse = await fetch(`http://localhost:3000/shelf${shelfId}/${id}`);
       if (!bookResponse.ok) {
         console.error("Book not found.");
         return; // Exit the function if the book doesn't exist
@@ -24,7 +30,7 @@ function DeleteBook() {
       if (!noteResponse.ok) {
         console.error("Note not found.");
         // Delete the book only if the note doesn't exist
-        await fetch(`http://localhost:3000/books/${id}`, {
+        await fetch(`http://localhost:3000/shelf${shelfId}/${id}`, {
           method: "DELETE",
         });
         console.log("Book deleted successfully.");
@@ -38,7 +44,7 @@ function DeleteBook() {
       console.log("Note deleted successfully.");
 
       // Delete the book
-      await fetch(`http://localhost:3000/books/${id}`, {
+      await fetch(`http://localhost:3000/shelf${shelfId}/${id}`, {
         method: "DELETE",
       });
       console.log("Book deleted successfully.");
@@ -46,7 +52,7 @@ function DeleteBook() {
       // Handle any error during deletion
       console.error("Error deleting book and note:", error);
     }
-    window.location.href = '/';
+   window.location.href = '/';
   };
 
   return (

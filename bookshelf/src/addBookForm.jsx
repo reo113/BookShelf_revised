@@ -6,6 +6,7 @@ const initialBookFormState = {
   title: "",
   author: "",
   pdf: "",
+  shelfID: ""
 };
 
 function AddBookForm({ onAddBook}) {
@@ -31,6 +32,7 @@ function AddBookForm({ onAddBook}) {
       author: bookFormState.author,
       pdf: bookFormState.pdf,
       image: bookFormState.image,
+      shelfID: selectedShelf.id,
     };
     const response = await fetch(`http://localhost:3000/${selectedShelf.id}`, {
       method: "POST",

@@ -5,21 +5,24 @@
       "image": "hpst.jpg",
       "title": "Harry Potter and the Sorcerer's Stone",
       "author": "J.K. Rowling",
-      "pdf": "https://www.pdfdrive.com/download.pdf?id=3d6b4d7a&h=1c2d2b2c&u=cache&ext=pdf"
+      "pdf": "https://www.pdfdrive.com/download.pdf?id=3d6b4d7a&h=1c2d2b2c&u=cache&ext=pdf",
+      "shelfID": 1
     },
     {
       "id": 3,
       "image": "HarryPotter-Book3-etsy-300x300.jpg",
       "title": "Harry Potter and the prisoner of Azkaban",
       "author": "J.K. Rowling",
-      "pdf": "https://www.pdfdrive.com/download.pdf?id=3d6b4d7a&h=1c2d2b2c&u=cache&ext=pdf"
+      "pdf": "https://www.pdfdrive.com/download.pdf?id=3d6b4d7a&h=1c2d2b2c&u=cache&ext=pdf",
+      "shelfID": 1
     },
     {
       "id": 4,
       "image": "gof.jpg",
       "title": "Harry Potter and the goblet of fire",
       "author": "J.K. Rowling",
-      "pdf": "https://www.pdfdrive.com/download.pdf?id=3d6b4d7a&h=1c2d2b2c&u=cache&ext=pdf"
+      "pdf": "https://www.pdfdrive.com/download.pdf?id=3d6b4d7a&h=1c2d2b2c&u=cache&ext=pdf",
+      "shelfID": 1
     }
   ],
   "shelf2": [
@@ -28,7 +31,8 @@
       "image": "ootp.jpg",
       "title": "Harry Potter and the order of the phoenix",
       "author": "J.K. Rowling",
-      "pdf": "https://www.pdfdrive.com/download.pdf?id=3d6b4d7a&h=1c2d2b2c&u=cache&ext=pdf"
+      "pdf": "https://www.pdfdrive.com/download.pdf?id=3d6b4d7a&h=1c2d2b2c&u=cache&ext=pdf",
+      "shelfID": 2
     }
   ],
   "shelf3": [
@@ -37,31 +41,26 @@
       "image": "HarryPotter-Book6-etsy.jpg",
       "title": "Harry Potter and the half-blood prince",
       "author": "J.K. Rowling",
-      "pdf": "https://www.pdfdrive.com/download.pdf?id=3d6b4d7a&h=1c2d2b2c&u=cache&ext=pdf"
+      "pdf": "https://www.pdfdrive.com/download.pdf?id=3d6b4d7a&h=1c2d2b2c&u=cache&ext=pdf",
+      "shelfID": 3
     },
     {
       "id": 7,
       "image": "HarryPotter-Book7-etsy-600x600.jpg",
       "title": "Harry Potter and the deathly hallows",
       "author": "J.K. Rowling",
-      "pdf": "https://www.pdfdrive.com/download.pdf?id=3d6b4d7a&h=1c2d2b2c&u=cache&ext=pdf"
-    },
-    {
-      "title": "hp",
-      "author": "jk",
-      "pdf": "h",
-      "image": "HarryPotter-Book6-etsy.jpg",
-      "id": 8
+      "pdf": "https://www.pdfdrive.com/download.pdf?id=3d6b4d7a&h=1c2d2b2c&u=cache&ext=pdf",
+      "shelfID": 3
     }
   ],
   "notes": [
     {
       "id": 1,
       "bookID": 1,
-      "rating": "89",
-      "favoriteLine": "its me",
-      "review": "yp",
-      "page": "90"
+      "rating": "90",
+      "favoriteLine": "its you",
+      "review": "yo yo",
+      "page": "100"
     },
     {
       "rating": "78",

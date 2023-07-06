@@ -27,7 +27,7 @@ const router = createBrowserRouter([
     element: <ViewDetails />,
   },
   {
-    path: '/delete-book/:id',
+    path: '/delete-book/:id/:shelfId',
     element: <DeleteBook />,
   },
   {

@@ -7,6 +7,7 @@ function OpenBook({handleCloseDisplay, selectedBook}){
 
   const handleAnimationEnd = () => {
     setAnimationDone(true);
+
   };
     return(
         <div className="display">
@@ -30,7 +31,7 @@ function OpenBook({handleCloseDisplay, selectedBook}){
           <Link to={`/add-details/${selectedBook.id}`} className="add-details-btn">
             Add Details
           </Link>
-          <Link to={`/delete-book/${selectedBook.id} `} className="delete-book-btn">
+          <Link to={`/delete-book/${selectedBook.id}/${selectedBook.shelfID} `} className="delete-book-btn">
             Delete Book
           </Link>
          <a  href={selectedBook.pdf} target="_blank" rel="noopener noreferrer" className="read-book-btn">Read Book</a>
