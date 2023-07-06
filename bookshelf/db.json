@@ -57,10 +57,10 @@
     {
       "id": 1,
       "bookID": 1,
-      "rating": "90",
-      "favoriteLine": "its you",
-      "review": "yo yo",
-      "page": "100"
+      "rating": "10",
+      "favoriteLine": "yo",
+      "review": "its a review",
+      "page": "90"
     },
     {
       "rating": "78",

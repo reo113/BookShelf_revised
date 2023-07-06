@@ -25,6 +25,7 @@ function AddDetailsPage() {
   const [NoteFormState, setNoteFormState] = useState(initialNoteFormState);
   const [isModalVisible, setIsModalVisible] = useState(true);
 
+console.log(note);
   const handleInputChange = (e) => {
     setNoteFormState((noteState) => ({
       ...noteState,
@@ -50,7 +51,7 @@ function AddDetailsPage() {
       review: NoteFormState.review,
       bookID: parseInt(id),
     };
-    if (note.length > 0) {
+    if (note && Object.keys(note).length > 0 ) {
   
       // Note exists, perform PATCH request
       const response = await fetch(`http://localhost:3000/notes/${note.id}`, {
@@ -64,12 +65,6 @@ function AddDetailsPage() {
       if (response.ok) {
         console.log("Note successfully updated!",note.id);
         const updatedNote = await response.json();
-        setNotes((prevNotes) => {
-          const updatedNotes = prevNotes.map((note) =>
-            note.bookID === note.bookID ? updatedNote : note
-          );
-          return updatedNotes;
-        });
         setNoteFormState(initialNoteFormState);
        window.location.href = "/";
       } else {
