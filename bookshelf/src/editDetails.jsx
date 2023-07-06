@@ -1,26 +1,36 @@
 import { useState,useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { Form, useLoaderData, Link } from "react-router-dom";
+import { Form, useLoaderData, Link, redirect } from "react-router-dom";
 import Modal from "./Modal";
 
 
 export async function loader({ params}) {
+
     const noteResponse = await fetch(`http://localhost:3000/notes/${params.id}`);
     const note = await noteResponse.json();
+
     return { note };
   }
 
 function EditDetails(){
     const { note } = useLoaderData();
+ 
 
-const { id } = useParams(); // Extract the book ID from the URL
-const [notes, setNotes] = useState([note]);
+const { id } = useParams(); 
+// Extract the book ID from the URL
+const [notes, setNote] = useState({
+  rating: "",
+  favoriteLine: "",
+  page: "",
+  review: ""
+});
 const [isModalVisible, setIsModalVisible] = useState(true);
 
 const handleInputChange = (e) => {
-    setNotes((noteState) => ({
+    setNote((noteState) => ({
     ...noteState,
     [e.target.name]: e.target.value,
+    bookID: parseInt(id),
   }));
 };
 
@@ -31,14 +41,31 @@ const hideModal = () => {
 
 const handleEditNoteFormSubmit = async (e) => {
     e.preventDefault();
-    window.location.href = '/';
-    };
+  
+    const response = await fetch(`http://localhost:3000/notes/${id}`, { 
+    method: "PATCH", 
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(notes)
+   
+  });
+
+  if (response.ok) {
+    console.log("Note successfully updated!");
+      window.location.href = "/";
+  } else {
+    console.log("Failed to update the note.");
+  }
+
+
+};
 
     return (
         <Modal isVisible={isModalVisible} hideModal={hideModal}>
-          <form onSubmit={handleEditNoteFormSubmit} id="editform">
+          <Form method="post" onSubmit={handleEditNoteFormSubmit} id="editform">
             <h2>Notes for Book ID: {id}</h2>
-            <div key={notes[parseInt(id) - 1].id}>
+            <div key={note.id}>
             <fieldset className="fields">
           <label htmlFor="rating">Rating:</label>
           <input
@@ -47,7 +74,7 @@ const handleEditNoteFormSubmit = async (e) => {
             name="rating"
             onChange={handleInputChange}
             className="input_fields"
-            placeholder ={String(notes[parseInt(id) - 1].rating)}
+            placeholder ={String(note.rating)}
           />
         </fieldset>
         <fieldset className="fields">
@@ -58,7 +85,7 @@ const handleEditNoteFormSubmit = async (e) => {
             name="favoriteLine"
             onChange={handleInputChange}
             className="input_fields"
-            placeholder={String(notes[parseInt(id) - 1].favoriteLine)}
+            placeholder={String(note.favoriteLine)}
           />
         </fieldset>
         <fieldset className="fields">
@@ -69,7 +96,7 @@ const handleEditNoteFormSubmit = async (e) => {
             name="page"
             onChange={handleInputChange}
             className="input_fields"
-            placeholder={String(notes[parseInt(id) - 1].page)}
+            placeholder={String(note.page)}
           />
         </fieldset>
         <fieldset className="fields">
@@ -79,7 +106,7 @@ const handleEditNoteFormSubmit = async (e) => {
             name="review"
             onChange={handleInputChange}
             className="input_fields"
-            placeholder={String(notes[parseInt(id) - 1].review)}
+            placeholder={String(note.review)}
           ></textarea>
         </fieldset>
         <input
@@ -87,7 +114,7 @@ const handleEditNoteFormSubmit = async (e) => {
         type="submit"
       ></input>
             </div>
-          </form>
+          </Form>
         </Modal>
       );
 }

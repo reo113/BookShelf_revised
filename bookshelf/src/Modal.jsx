@@ -11,7 +11,7 @@ function Modal({ isVisible, hideModal, children }) {
   };
     if(!isVisible) { return null }
     return (
-      <div onClick={hideModal} className="modal_content">
+      <div onClick={handleClick} className="modal_content">
         <div onClick={(e) => e.stopPropagation() } className="modal_btn">
           <button
             onClick={handleClick}

@@ -33,6 +33,7 @@ function OpenBook({handleCloseDisplay, selectedBook}){
           <Link to={`/delete-book/${selectedBook.id} `} className="delete-book-btn">
             Delete Book
           </Link>
+         <a  href={selectedBook.pdf} target="_blank" rel="noopener noreferrer" className="read-book-btn">Read Book</a>
           <button id="close_display_btn" onClick={handleCloseDisplay}>
           Close
         </button>

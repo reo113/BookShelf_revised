@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams,useLoaderData } from "react-router-dom";
 import Modal from "./Modal";
 
 
@@ -10,8 +10,16 @@ const initialNoteFormState = {
   review: "",
 };
 
-function AddDetailsPage() {
+export async function loader({ params}) {
 
+  const noteResponse = await fetch(`http://localhost:3000/notes/${params.id}`);
+  const note = await noteResponse.json();
+
+  return { note };
+}
+
+function AddDetailsPage() {
+  const { note } = useLoaderData();
   const { id } = useParams(); // Extract the book ID from the URL
   const [notes, setNotes] = useState([]);
   const [NoteFormState, setNoteFormState] = useState(initialNoteFormState);
@@ -42,17 +50,51 @@ function AddDetailsPage() {
       review: NoteFormState.review,
       bookID: parseInt(id),
     };
-    const response = await fetch("http://localhost:3000/notes", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(newNote),
-    });
-    const savedNote = await response.json();
-    onAddNote(savedNote);
-    setNoteFormState(initialNoteFormState);
-    window.location.href = "/";
+    if (note.length > 0) {
+  
+      // Note exists, perform PATCH request
+      const response = await fetch(`http://localhost:3000/notes/${note.id}`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newNote),
+      });
+  
+      if (response.ok) {
+        console.log("Note successfully updated!",note.id);
+        const updatedNote = await response.json();
+        setNotes((prevNotes) => {
+          const updatedNotes = prevNotes.map((note) =>
+            note.bookID === note.bookID ? updatedNote : note
+          );
+          return updatedNotes;
+        });
+        setNoteFormState(initialNoteFormState);
+       window.location.href = "/";
+      } else {
+        console.log("Failed to update the note.");
+      }
+    } else {
+      // Note does not exist, perform POST request
+      const response = await fetch("http://localhost:3000/notes", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newNote),
+      });
+  
+      if (response.ok) {
+        console.log("Note successfully added!");
+        const savedNote = await response.json();
+        onAddNote(savedNote);
+        setNoteFormState(initialNoteFormState);
+        window.location.href = "/";
+      } else {
+        console.log("Failed to add the note.");
+      }
+    }
   };
 
   return (

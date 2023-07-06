@@ -9,6 +9,8 @@ import ViewDetails from './viewDetails.jsx';
 import DeleteBook from './deleteBook.jsx';
 import EditDetails from './editDetails.jsx';
 import {loader as editDetailsLoader} from './editDetails.jsx';
+import {loader as addDetailsLoader} from './AddDetailsPage.jsx';  
+
 const router = createBrowserRouter([
   {
     path: '/',
@@ -18,6 +20,7 @@ const router = createBrowserRouter([
   {
     path: '/add-details/:id',
     element: <AddDetailsPage />,
+    loader: addDetailsLoader,
   },
   {
     path: '/view-details/:id',

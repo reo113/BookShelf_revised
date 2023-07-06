@@ -24,14 +24,15 @@ function AddBookForm({ onAddBook}) {
 
   const handleAddBookFormSubmit = async (e) => {
     e.preventDefault();
-  
+  const selectedShelf = document.querySelector('input[name="shelf"]:checked');
+  console.log(selectedShelf.id);
     const newBook = {
       title: bookFormState.title,
       author: bookFormState.author,
       pdf: bookFormState.pdf,
       image: bookFormState.image,
     };
-    const response = await fetch("http://localhost:3000/books", {
+    const response = await fetch(`http://localhost:3000/${selectedShelf.id}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -39,7 +40,7 @@ function AddBookForm({ onAddBook}) {
       body: JSON.stringify(newBook),
     });
     const savedBook = await response.json();
-    onAddBook(savedBook);
+    onAddBook(savedBook,selectedShelf.id);
     setBookFormState(initialBookFormState);
   };
 
@@ -93,35 +94,32 @@ function AddBookForm({ onAddBook}) {
           className="input_fields"
         />
       </fieldset>
-      {/* <fieldset className="radio">
-        <label htmlFor="pdf">Shelf #1</label>
-          <input
-            onChange={handleInputChange}
-            value={bookFormState.pdf}
-            type="checkbox"
-            name="pdf"
-            id="pdf"
-            className="input_fields"
-          />
-          <label htmlFor="pdf">Shelf #2</label>
-          <input
-            onChange={handleInputChange}
-            value={bookFormState.pdf}
-            type="checkbox"
-            name="pdf"
-            id="pdf"
-            className="input_fields"
-          />
-          <label htmlFor="pdf">Shelf #3</label>
-          <input
-            onChange={handleInputChange}
-            value={bookFormState.pdf}
-            type="checkbox"
-            name="pdf"
-            id="pdf"
-            className="input_fields"
-          />
-      </fieldset> */}
+      <fieldset className="radio">
+    <label htmlFor="shelf1">Shelf #1</label>
+    <input
+      onChange={handleInputChange}
+      type="radio"
+      name="shelf"
+      id="shelf1"
+      className="input_fields"
+    />
+    <label htmlFor="shelf2">Shelf #2</label>
+    <input
+      onChange={handleInputChange}
+      type="radio"
+      name="shelf"
+      id="shelf2"
+      className="input_fields"
+    />
+    <label htmlFor="shelf3">Shelf #3</label>
+    <input
+      onChange={handleInputChange}
+      type="radio"
+      name="shelf"
+      id="shelf3"
+      className="input_fields"
+    />
+  </fieldset>
       <input
         className="form_sub_btn"
         type="submit"

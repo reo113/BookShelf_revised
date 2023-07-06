@@ -1,16 +1,9 @@
 {
-  "books": [
+  "shelf1": [
     {
       "id": 1,
       "image": "hpst.jpg",
       "title": "Harry Potter and the Sorcerer's Stone",
-      "author": "J.K. Rowling",
-      "pdf": "https://www.pdfdrive.com/download.pdf?id=3d6b4d7a&h=1c2d2b2c&u=cache&ext=pdf"
-    },
-    {
-      "id": 2,
-      "image": "book2hp.jpg",
-      "title": "Harry Potter and the chamber of secrets",
       "author": "J.K. Rowling",
       "pdf": "https://www.pdfdrive.com/download.pdf?id=3d6b4d7a&h=1c2d2b2c&u=cache&ext=pdf"
     },
@@ -27,14 +20,18 @@
       "title": "Harry Potter and the goblet of fire",
       "author": "J.K. Rowling",
       "pdf": "https://www.pdfdrive.com/download.pdf?id=3d6b4d7a&h=1c2d2b2c&u=cache&ext=pdf"
-    },
+    }
+  ],
+  "shelf2": [
     {
       "id": 5,
       "image": "ootp.jpg",
       "title": "Harry Potter and the order of the phoenix",
       "author": "J.K. Rowling",
       "pdf": "https://www.pdfdrive.com/download.pdf?id=3d6b4d7a&h=1c2d2b2c&u=cache&ext=pdf"
-    },
+    }
+  ],
+  "shelf3": [
     {
       "id": 6,
       "image": "HarryPotter-Book6-etsy.jpg",
@@ -48,32 +45,39 @@
       "title": "Harry Potter and the deathly hallows",
       "author": "J.K. Rowling",
       "pdf": "https://www.pdfdrive.com/download.pdf?id=3d6b4d7a&h=1c2d2b2c&u=cache&ext=pdf"
+    },
+    {
+      "title": "hp",
+      "author": "jk",
+      "pdf": "h",
+      "image": "HarryPotter-Book6-etsy.jpg",
+      "id": 8
     }
   ],
   "notes": [
     {
       "id": 1,
       "bookID": 1,
-      "rating": 5,
-      "favoriteLine": "yhinh thinh",
-      "review": "stuff stuff",
-      "page": "49"
-    },
-    {
-      "rating": "45",
+      "rating": "89",
       "favoriteLine": "its me",
-      "page": "87",
-      "review": "its real good",
-      "bookID": 2,
-      "id": 2
+      "review": "yp",
+      "page": "90"
     },
     {
       "rating": "78",
-      "favoriteLine": "oh yea",
-      "page": "65",
-      "review": "its real good",
-      "bookID": 4,
+      "favoriteLine": "its me",
+      "page": "89",
+      "review": "uts ok",
+      "bookID": 3,
       "id": 3
+    },
+    {
+      "rating": "90",
+      "favoriteLine": "its you",
+      "page": "99",
+      "review": "ho ho",
+      "bookID": 4,
+      "id": 4
     }
   ]
 }

@@ -82,7 +82,7 @@ button:focus-visible {
   display: flex;
   flex-direction: column;
   align-items: center;
-  position: relative;
+  position: ab;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   filter: drop-shadow(0.1em 5em 0.1em rgba(0, 0, 0, 0.2));
@@ -91,11 +91,6 @@ button:focus-visible {
   color: rgb(53, 35, 9);
   width: 100%;
   height: 70vh;
-  position: relative;
-  min-width: fit-content;
-  max-width: fit-content;
-  min-height: fit-content;
-  max-height: fit-content;
 }
 
 .shelf button:hover {
@@ -112,18 +107,13 @@ button:focus-visible {
   width: 100%;
   height: 22vh;
   display: flex;
-  flex-direction: row;
   box-shadow: 5px 2px 4px rgba(0, 0, 0, 0.2);
   background-color: rgb(20, 12, 1);
   overflow-y: hidden;
   overflow-x: auto;
   border-radius: 6px;
   top: 1.5vh;
-  min-width: fit-content;
-  max-width: fit-content;
-  min-height: fit-content;
-  max-height: fit-content;
-  align-items: last baseline;
+  align-items: flex-end;
 }
 .highlight {
   background-color: yellow;
@@ -132,49 +122,25 @@ button:focus-visible {
 .container {
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
-  align-items: center;
-  width: 100%;
+  justify-content: flex-start;
   height: 100%;
   padding-bottom: 1em;
   margin: 0;
-  overflow: hidden;
   position: relative;
   top: 0.5vh;
-  align-items: last baseline;
+  align-items: flex-end;
+overflow: hidden;
+  z-index: 1;
+  
+
 }
 .book-image {
   width: 60px;
   height: 220px;
 }
-.display {
-  position: fixed;
-  top: 10vh;
-  right: 0;
-  left: 0;
-  bottom: -10vh;
-  background-color: rgba(0, 0, 0, 0.25);
-  backdrop-filter: blur(4px);
-  display: flex;
-  justify-content: baseline;
-  align-items: center;
-  z-index: 999;
-}
 
-.display-content {
-  background-color: white;
-  padding: 20px;
-  border-radius: 5px;
-  text-align: center;
-}
 /*****************************************************/
-.open_book {
-  position: absolute;
-  margin: auto;
-  width: 38.5rem;
-  height: 32.5rem;
-  perspective: 70rem;
-}
+
 .cover {
   position: relative;
   display: flex;
@@ -210,11 +176,9 @@ button:focus-visible {
   border: 2px solid;
 }
 #close_display_btn {
-  position: absolute;
+  position: relative;
   display: flex;
   bottom: auto;
-  float: left;
-  right: 31.5vw;
   margin: 1rem;
   padding: 0.5rem;
   border: 1px solid #777;
@@ -316,31 +280,35 @@ button:focus-visible {
   margin-right: auto;
   display: flex;
   flex-direction: column;
-  border: 2px solid yellow;
+
+  gap: 1rem; /* Equivalent to gap-4 in Tailwind CSS */
+  background-color: darkgoldenrod;
+  border: 2px solid burlywood;
 }
 .modal_close_btn {
   color: white;
   font-size: 1.25rem; /* Assuming 1 rem = 16px */
   align-self: flex-end;
-  border: 2px solid yellow;
+  border: 2px solid burlywood;
 }
 .modal_form {
   background-color: white;
   color: #333333; /* Equivalent to gray-800 in Tailwind CSS */
   padding: 2rem; /* Assuming 1 rem = 16px */
-  border: 4px solid blue;
+  border: 4px solid burlywood;
+
 }
 .main_form {
-  background-color: #bfdbfe; /* Equivalent to bg-blue-200 in Tailwind CSS */
+  background-color: #bfdbfe;
   display: flex;
   flex-direction: column;
   gap: 0.5rem; /* Equivalent to gap-2 in Tailwind CSS */
-  border: 2px solid red;
+  border: 2px solid burlywood;
 }
 .fields {
   display: flex;
   flex-direction: column;
-  border: 2px solid yellow;
+  border: 2px solid burlywood;
 }
 .input_fields {
   background-color: white;
@@ -350,7 +318,7 @@ button:focus-visible {
   border-color: initial;
   outline: none;
   padding: 0.5rem;
-  border: 2px solid yellow;
+  border: 2px solid burlywood;
 }
 .last_input_field {
   display: flex;
@@ -358,7 +326,7 @@ button:focus-visible {
   align-items: center;
 }
 .form_sub_btn {
-  background-color: #3b82f6; /* Equivalent to bg-blue-500 in Tailwind CSS */
+  background-color: darkgoldenrod; /* Equivalent to bg-blue-500 in Tailwind CSS */
   transition: background-color 0.3s ease;
   margin-top: 1rem; /* Equivalent to mt-4 in Tailwind CSS */
   padding-top: 0.5rem; /* Equivalent to py-2 in Tailwind CSS */
@@ -368,20 +336,61 @@ button:focus-visible {
 }
 .radio {
   padding: 0.5rem;
+  border: 2px solid yellow;
+  color: white;
+  background-color: darkgoldenrod;
+
+}
+.open_book {
+  position: relative;
+  margin:  0 auto;
+  width: 38.5rem;
+  height: 38.9rem;
+  top: 10vh;
+  perspective: 70rem;
+}
+.display {
+  position: absolute;
+  top: 10vh;
+  bottom: -10vh;
+  background-color: rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(4px);
+  z-index: 9999;
 }
 
+.buttons-container{
+  width:100%;
+  position: relative;
+  display:flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content:space-between;
+  align-items:center;
+  margin: 0  0 200px 0;
+  z-index: 999;
+  bottom: 59vh;
+  left: 1.7vw;
+}
+.buttons-container a{
+  width: 50%;
+  position: relative;
+  display: inline-block;
+  padding: .5px 0;
+  z-index: 999;
+  text-decoration: none;
+  
+}
 .add-details-btn {
   position: absolute;
   z-index: 999;
   font-size: 4.5rem;
   font-family: "Lucida Handwriting", cursive;
   background-color: transparent;
-  float: right;
   transition: transform 2.5s ease-in-out;
   width: 50%;
   height: auto;
-  bottom: 25.5vh;
-  right: 4.5vw;
+  bottom: 9vh;
+  left: 1.7vw;
 }
 .add-details-btn:hover {
   transform: translateY(0.5em);
@@ -392,45 +401,66 @@ button:focus-visible {
   width: 50%;
   height: auto;
   position: absolute;
-    bottom: 1.5vh;
-  right: 4.5vw;
   z-index: 999;
   font-size: 4.5rem;
   font-family: "Lucida Handwriting", cursive;
   background-color: transparent;
   z-index: 999;
+  top: 9vh;
+  right: 1.7vw;
 }
 .delete-book-btn:hover {
   transform: translateY(0.5em);
   transform: scale(1.1);
   transition: transform 1.5s;
 }
-.buttons-container a{
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  z-index: 999;
-  text-decoration: none;
-}
+
 .view-details-btn{
   width: 50%;
   height: auto;
   position: absolute;
   z-index: 999;
   font-size: 4.5rem;
-  bottom: 30.5vh;
-  right: 4.5vw;
   font-family: "Lucida Handwriting", cursive;
   background-color: transparent;
   z-index: 999;
+  bottom: 9vh;
+  right: 1.7vw;
 }
 .view-details-btn:hover {
   transform: translateY(0.5em);
   transform: scale(1.1);
   transition: transform 1.5s;
 }
-
+.read-book-btn{
+  width: 50%;
+  height: auto;
+  position: absolute;
+  font-size: 4.5rem;
+  font-family: "Lucida Handwriting", cursive;
+  background-color: transparent;
+  z-index: 999;
+  top: 9vh;
+  left: 1.7vw;
+}
+.read-book-btn:hover {
+  transform: translateY(0.5em);
+  transform: scale(1.1);
+  transition: transform 1.5s;
+}
+#close_display_btn {
+  position: relative;
+  display: inherit;
+  margin: 1rem;
+  padding: 0.5rem;
+  border-radius: 5px;
+  background-color: #36354e;
+  color: #fff;
+  cursor: pointer;
+  z-index: 999;
+  top: 9vh;
+  left: 11.3vw;
+}
 #editform{
   color:black;
   background-color: white;

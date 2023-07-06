@@ -52,7 +52,6 @@ function DeleteBook() {
   return (
     <Modal isVisible={isModalVisible} hideModal={hideModal}>
     <div>
-      <h2>Delete Book and Note</h2>
       <p>Are you sure you want to delete?</p>
       <button onClick={handleDelete}>Delete</button>
     </div>
