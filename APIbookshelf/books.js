@@ -1,0 +1,91 @@
+
+   const shelf1 = [
+      {
+        "id": 1,
+        "image": "hpst.jpg",
+        "title": "Harry Potter and the Sorcerer's Stone",
+        "author": "J.K. Rowling",
+        "pdf": "https://www.pdfdrive.com/download.pdf?id=3d6b4d7a&h=1c2d2b2c&u=cache&ext=pdf",
+        "shelfID": 1
+      },
+      {
+        "id": 2,
+        "image": "book2hp.jpg",
+        "title": "Harry Potter and the chamber of secrets",
+        "author": "J.K. Rowling",
+        "pdf": "https://www.pdfdrive.com/download.pdf?id=3d6b4d7a&h=1c2d2b2c&u=cache&ext=pdf",
+        "shelfID": 1
+      },
+      {
+        "id": 3,
+        "image": "HarryPotter-Book3-etsy-300x300.jpg",
+        "title": "Harry Potter and the prisoner of Azkaban",
+        "author": "J.K. Rowling",
+        "pdf": "https://www.pdfdrive.com/download.pdf?id=3d6b4d7a&h=1c2d2b2c&u=cache&ext=pdf",
+        "shelfID": 1
+      },
+      {
+        "id": 4,
+        "image": "gof.jpg",
+        "title": "Harry Potter and the goblet of fire",
+        "author": "J.K. Rowling",
+        "pdf": "https://www.pdfdrive.com/download.pdf?id=3d6b4d7a&h=1c2d2b2c&u=cache&ext=pdf",
+        "shelfID": 1
+      }
+      
+    ];
+   const shelf2 =[
+      {
+        "id": 5,
+        "image": "ootp.jpg",
+        "title": "Harry Potter and the order of the phoenix",
+        "author": "J.K. Rowling",
+        "pdf": "https://www.pdfdrive.com/download.pdf?id=3d6b4d7a&h=1c2d2b2c&u=cache&ext=pdf",
+        "shelfID": 2
+      },
+      {
+        "title": "hp",
+        "author": "jk",
+        "pdf": "p",
+        "image": "HarryPotter-Book6-etsy.jpg",
+        "shelfID": 2,
+        "id": 6
+      }
+    ];
+    const shelf3 =[
+      {
+        "id": 7,
+        "image": "HarryPotter-Book7-etsy-600x600.jpg",
+        "title": "Harry Potter and the deathly hallows",
+        "author": "J.K. Rowling",
+        "pdf": "https://www.pdfdrive.com/download.pdf?id=3d6b4d7a&h=1c2d2b2c&u=cache&ext=pdf",
+        "shelfID": 3
+      }
+    ];
+   const reviews = [
+      {
+        "rating": "78",
+        "favoriteLine": "its me",
+        "page": "89",
+        "review": "uts ok",
+        "bookID": 3,
+        "id": 3
+      },
+      {
+        "rating": "90",
+        "favoriteLine": "its you",
+        "page": "99",
+        "review": "ho ho",
+        "bookID": 4,
+        "id": 4
+      },
+      {
+        "rating": "78",
+        "favoriteLine": "yo yo",
+        "page": "56",
+        "review": "its a review",
+        "bookID": 1,
+        "id": 5
+      }
+    ];
+  module.exports = {shelf1, shelf2, shelf3, reviews};
